@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    {% for message in messages %}
+    <div class="alert alert-{{ message }} alert-dismissible fade show" role="alert">
+    <strong>Mensagem:</strong>{{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    {% endfor %}
+
+    <h3>Bem vindo Sistema de Login</h3>
+
+    {% if user.is_authenticated %}
+    <h3>Olá, {{ fname }}</h3>
+    <h4>Login realizado com sucesso!</h4>
+    <button type="submit"> <a href="/signout">SignOut</button>
+    
+
+    
+    {% else %}
+    <button type="submit"> <a href="/signin"> SignIn</button>
+    <button type="submit"> <a href="/signup"> SignUp</button>
+    {% endif %}
+    
+</body>
+</html>
